@@ -6,5 +6,8 @@ namespace OC.Data.Models
 {
     public class Like
     {
+        public string LikeId { get; set; }
+        public string ManualId { get; set; }
+        public string AuthorId { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using OC.Data.Models;
+﻿using OC.Data;
+using OC.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,22 +8,33 @@ namespace OC.Repository.Repositories
 {
     public class CommentRepository : IRepository<Comment>
     {
+        private ApplicationDbContext _context;
+
+        public CommentRepository(ApplicationDbContext context)
+        {
+            _context = context;
+        }
         public void Create(Comment item)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(int id)
+        public void Delete(string id)
         {
             throw new NotImplementedException();
         }
 
-        public Comment GetById(int id)
+        public Comment GetById(string id)
         {
             throw new NotImplementedException();
         }
 
         public IEnumerable<Comment> GetList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Comment> GetManualComments(string id)
         {
             throw new NotImplementedException();
         }
@@ -36,5 +48,6 @@ namespace OC.Repository.Repositories
         {
             throw new NotImplementedException();
         }
+        
     }
 }
