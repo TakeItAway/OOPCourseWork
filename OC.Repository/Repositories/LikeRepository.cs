@@ -19,37 +19,34 @@ namespace OC.Repository.Repositories
         }
         public void Create(Like item)
         {
-            throw new NotImplementedException();
+            _context.Likes.Add(item);
+            _context.SaveChanges();
         }
 
         public void Delete(string id)
         {
-            throw new NotImplementedException();
+            var like = _context.Likes.Find(id);
+            _context.Likes.Remove(like);
         }
 
         public Like GetById(string id)
         {
-            throw new NotImplementedException();
+            return _context.Likes.Find(id);
         }
 
         public IEnumerable<Like> GetList()
         {
-            throw new NotImplementedException();
+            return _context.Likes;
         }
 
-        public IEnumerable<Comment> GetManualLikes(string id)
+        public IEnumerable<Like> GetManualLikes(string id)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Save(Like item)
-        {
-            throw new NotImplementedException();
+            return _context.Likes.Where(like => like.ManualId == id);
         }
 
         public void Update(Like item)
         {
-            throw new NotImplementedException();
+            _context.Likes.Update(item);
         }
     }
 }

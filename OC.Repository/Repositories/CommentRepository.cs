@@ -2,6 +2,7 @@
 using OC.Data.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace OC.Repository.Repositories
@@ -16,38 +17,34 @@ namespace OC.Repository.Repositories
         }
         public void Create(Comment item)
         {
-            throw new NotImplementedException();
+            _context.Comments.Add(item);
+            _context.SaveChanges();
         }
 
         public void Delete(string id)
         {
-            throw new NotImplementedException();
+            var comment = _context.Comments.Find(id);
+            _context.Remove(comment);
         }
 
         public Comment GetById(string id)
         {
-            throw new NotImplementedException();
+            return _context.Comments.Find(id);
         }
 
         public IEnumerable<Comment> GetList()
         {
-            throw new NotImplementedException();
+            return _context.Comments;
         }
 
         public IEnumerable<Comment> GetManualComments(string id)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Save(Comment item)
-        {
-            throw new NotImplementedException();
+            return _context.Comments.Where(comment => comment.ManualId == id);
         }
 
         public void Update(Comment item)
         {
-            throw new NotImplementedException();
+            _context.Comments.Update(item);
         }
-        
     }
 }

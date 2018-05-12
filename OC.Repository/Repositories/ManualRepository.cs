@@ -2,6 +2,7 @@
 using OC.Data.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace OC.Repository.Repositories
@@ -16,32 +17,40 @@ namespace OC.Repository.Repositories
         }
         public void Create(Manual item)
         {
-            throw new NotImplementedException();
+            _context.Add(item);
+            _context.SaveChanges();
         }
 
         public void Delete(string id)
         {
-            throw new NotImplementedException();
+            var manual = _context.Manuals.Find(id);
+            _context.Remove(manual);
         }
 
         public Manual GetById(string id)
         {
-            throw new NotImplementedException();
+            return _context.Manuals.Find(id);
         }
 
         public IEnumerable<Manual> GetList()
         {
-            throw new NotImplementedException();
-        }
-
-        public void Save(Manual item)
-        {
-            throw new NotImplementedException();
+            return _context.Manuals;
         }
 
         public void Update(Manual item)
         {
-            throw new NotImplementedException();
+            _context.Manuals.Update(item);
+        }
+
+        public IEnumerable<Manual> GetTagManuals(string tagId)
+        {
+            List<Manual> list = new List<Manual>();
+            List<ManualTag> manualTags = _context.ManualTags.Where(manual => manual.TagId == tagId).ToList();
+            foreach (ManualTag manual in manualTags)
+            {
+                list.Add(_context.Manuals.Find(manual.ManualId));
+            }
+            return list;
         }
     }
 }

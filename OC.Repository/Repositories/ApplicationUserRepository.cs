@@ -19,27 +19,24 @@ namespace OC.Repository.Repositories
 
         public void Create(ApplicationUser item)
         {
-            throw new NotImplementedException();
+            _context.Add(item);
+            _context.SaveChanges();
         }
 
         public void Delete(string id)
         {
-            throw new NotImplementedException();
+            //_context.Remove
         }
 
         public ApplicationUser GetById(string id)
         {
             throw new NotImplementedException();
+            // return _context.ApplicationUsers.Where(user => user)
         }
 
         public IEnumerable<ApplicationUser> GetList()
         {
-            throw new NotImplementedException();
-        }
-
-        public void Save(ApplicationUser item)
-        {
-            throw new NotImplementedException();
+            return _context.ApplicationUsers.Where(u => true);
         }
 
         public void Update(ApplicationUser item)

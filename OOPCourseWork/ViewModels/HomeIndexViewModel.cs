@@ -10,5 +10,6 @@ namespace OOPCourseWork.ViewModels
     {
         public ApplicationUser User { get; set; }
         public IEnumerable<Manual> Manuals { get; set; }
+        public IEnumerable<Tag> Tags { get; set; }
     }
 }

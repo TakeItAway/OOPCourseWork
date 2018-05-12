@@ -18,37 +18,34 @@ namespace OC.Repository.Repositories
         }
         public void Create(Tag item)
         {
-            throw new NotImplementedException();
+            _context.Tags.Add(item);
+            _context.SaveChanges();
         }
 
         public void Delete(string id)
         {
-            throw new NotImplementedException();
+            var tag = _context.Tags.Find(id);
+            _context.Remove(tag);
         }
 
         public Tag GetById(string id)
         {
-            throw new NotImplementedException();
+            return _context.Tags.Find(id);
         }
 
         public IEnumerable<Tag> GetList()
         {
-            throw new NotImplementedException();
+            return _context.Tags;
         }
 
-        public IEnumerable<Comment> GetManualTags(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Save(Tag item)
+        public IEnumerable<Tag> GetManualTags(string id)
         {
             throw new NotImplementedException();
         }
 
         public void Update(Tag item)
         {
-            throw new NotImplementedException();
+            _context.Update(item);
         }
     }
 }

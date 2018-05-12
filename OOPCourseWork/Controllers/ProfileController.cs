@@ -12,5 +12,13 @@ namespace OOPCourseWork.Controllers
         {
             return View();
         }
+        public IActionResult CreateManual()
+        {
+            return View();
+        }
+        public IActionResult EditManual()
+        {
+            return View();
+        }
     }
 }
