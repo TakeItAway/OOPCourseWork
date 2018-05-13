@@ -43,6 +43,23 @@ namespace OOPCourseWork.Controllers
             return View(newModel);
         }
 
+        public async Task<IActionResult> Manual(int id)
+        {
+            //var user = await _userManager.GetUserAsync(User);
+            //Manual manual = context.Manuals.Find(id);
+            //ManualViewModel model = new ManualViewModel
+            //{
+            //    Manual = manual,
+            //    Steps = context.Steps.Where(s => s.ManualId == manual.ManualId).ToList(),
+            //    Comments = context.Comments.Where(c => c.ManualId == manual.ManualId).ToList(),
+            //    User = user,
+            //    Context = context,
+            //    Tags = ManualHelper.GetAllManualTags(id, context)
+            //};
+            return View();
+        }
+
+
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
@@ -54,11 +71,6 @@ namespace OOPCourseWork.Controllers
         {
             ViewData["Message"] = "Your contact page.";
 
-            return View();
-        }
-
-        public IActionResult Manual()
-        {
             return View();
         }
 
